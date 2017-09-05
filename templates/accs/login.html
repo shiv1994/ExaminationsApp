@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<nav class="navbar navbar-inverse">
+
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Examinations</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Login</a></li>
+            </ul>
+          </div>
+
+    </nav>
+
+    <br>
+    <br>
+
+    {% if form.errors %}
+
+    <div class="row row-centered alert alert-danger">
+
+	    <p>Your username and password didn't match. Please try again.</p>
+
+    </div>
+
+    {% endif %}
+
+	<div class="row row-centered">
+
+	    <div class="col-lg-1 col-centered">
+
+			<form method="POST">
+			    {% csrf_token %}
+			    <p>
+			        <label>Username</label>
+			        <input type="text" name="username">
+			    </p>
+			    <p>
+			        <label>Password</label>
+			        <input type="password" name="password">
+			    </p>
+			    <button type="submit">Login</button>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> {{ block_title }} </title>
+
+        {# Load the tag library #}
+        {% load bootstrap3 %}
+
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('dropdown-toggle').dropdown()
+            });
+        </script>
+
+        <!-- Core CSS - Include with every page -->
+        <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+
+    </head>
+        <body>
+
+            <div class="container">
+
+                {# Display django.contrib.messages as Bootstrap alerts #}
+                {% bootstrap_messages %}
+
+                {% block content %}
+
+                {% endblock %}
+            <div>
+    </body>
+</html>
