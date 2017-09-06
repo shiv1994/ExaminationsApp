@@ -13,6 +13,9 @@ fsr = FileSystemStorage(location='/media/')
 
 # Create your models here.
 
+# class Course(models.Model):
+
+
 class ExamPaper(models.Model):
     SEMESTER_CHOICES = (
         ('ONE', '1'),

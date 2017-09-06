@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load render_table from django_tables2 %}
+
 {% if user.is_authenticated %}
 
 	{% block content %}
@@ -29,25 +31,27 @@
 
     <h1>Exam List</h1>
 
-    {% if exam_list %}
-    
-    <ul>
+    {% render_table table %}
 
-      {% for exam in exam_list %}
+    <!--{% if exam_list %}-->
+    <!---->
+    <!--<ul>-->
 
-      <li>
-        <a href="#">{{ exam.firstExaminer.phone }}</a>
-      </li>
+      <!--{% for exam in exam_list %}-->
 
-      {% endfor %}
+      <!--<li>-->
+        <!--<a href="#">{{ exam.firstExaminer.phone }}</a>-->
+      <!--</li>-->
 
-    </ul>
+      <!--{% endfor %}-->
 
-    {% else %}
+    <!--</ul>-->
 
-      <p>There are no associated exams.</p>
+    <!--{% else %}-->
 
-    {% endif %}
+      <!--<p>There are no associated exams.</p>-->
+
+    <!--{% endif %}-->
 
 	{% endblock %}
 
