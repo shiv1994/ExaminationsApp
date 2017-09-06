@@ -4,8 +4,14 @@
 <html>
     <head>
         <meta charset="utf-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> {{ block_title }} </title>
+
+        <title>
+            {% block title %}
+
+            {% endblock %}
+        </title>
 
         {# Load the tag library #}
         {% load bootstrap3 %}
@@ -16,7 +22,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -31,6 +37,35 @@
     </head>
         <body>
 
+            <nav class="navbar navbar-inverse">
+
+                  <div class="container-fluid">
+                    <div class="navbar-header">
+                      <a class="navbar-brand" href="#">Examinations</a>
+                    </div>
+
+                  {% block nav_selection %}
+
+                  {% endblock %}
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">My Profile</a></li>
+                        </ul>
+                    </li>
+
+                    <li ><a href="/logout">Logout</a> </li>
+
+                </ul>
+
+              </div>
+
+            </nav>
+
             <div class="container">
 
                 {# Display django.contrib.messages as Bootstrap alerts #}
@@ -40,5 +75,6 @@
 
                 {% endblock %}
             <div>
+
     </body>
 </html>

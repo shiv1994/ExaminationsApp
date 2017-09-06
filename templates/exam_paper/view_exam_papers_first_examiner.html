@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load render_table from django_tables2 %}
+
+{% if user.is_authenticated %}
+
+    {% block title %}
+
+        Exam Views
+
+    {% endblock %}
+
+    {% block nav_selection %}
+
+        <ul class="nav navbar-nav">
+          <li> <a href="/#">Home</a> </li>
+          <li class="active"> <a href="#">First Examiner Exam Views</a> </li>
+          <li> <a href="#">Second Examiner Exam Views</a> </li>
+          <li> <a href="#">External Examiner Exam Views</a> </li>
+        </ul>
+
+    {% endblock %}
+
+	{% block content %}
+
+        <h1>Exam List</h1>
+
+        {% render_table table %}
+
+	{% endblock %}
+
+{% endif %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% if user.is_authenticated %}
+
+    {% block title %}
+
+        Exam Paper Detail
+
+    {% endblock %}
+
+    {% block nav_selection %}
+
+        <ul class="nav navbar-nav">
+          <li><a href="/#">Home</a> </li>
+          <li> <a href="#">First Examiner Exam Views</a> </li>
+          <li> <a href="#">Second Examiner Exam Views</a> </li>
+          <li> <a href="#">External Examiner Exam Views</a> </li>
+          <li class="active"> Exam Paper Detail </li>
+        </ul>
+
+    {% endblock %}
+
+
+	{% block content %}
+
+
+
+	{% endblock %}
+
+{% endif %}

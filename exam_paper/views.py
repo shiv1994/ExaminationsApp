@@ -18,18 +18,21 @@ from .tables import MembershipExamUserTable
 
 # Create your views here.
 
+# def allExamsFirstExaminerView():
+
+
 # @login_required(login_url="login/")
-class allExamsView(generic.ListView):
+class allExamsFirstExaminerView(generic.ListView):
     model = ExamPaper
 
     context_object_name = 'exam_list'
 
     ordering = ['id']
 
-    template_name = 'exam_paper/view_exam_papers.html'
+    template_name = 'exam_paper/view_exam_papers_first_examiner.html'
 
     def get_context_data(self, **kwargs):
-        context = super(allExamsView, self).get_context_data(**kwargs)
+        context = super(allExamsFirstExaminerView, self).get_context_data(**kwargs)
         table = MembershipExamUserTable(MembershipExamUser.objects.filter(firstExaminer__id=self.request.user.id).order_by('-pk'))
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table

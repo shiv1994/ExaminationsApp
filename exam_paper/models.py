@@ -13,7 +13,15 @@ fsr = FileSystemStorage(location='/media/')
 
 # Create your models here.
 
-# class Course(models.Model):
+class Course(models.Model):
+    FACULTY_CHOICES = (
+        ('FACULTY OF SCIENCE AND TECHNOLOGY', 'Faculty of Science and Technology'),
+        ('FACULTY OF ENGINEERING', 'Faculty of Engineering'),
+        ('FACULTY OF FOOD AND AGRICULTURE', 'Faculty of Food and Agriculture')
+    )
+    courseCode = models.CharField(max_length=10, verbose_name='Course Code')
+    courseName = models.CharField(max_length=30)
+    faculty = models.CharField(max_length=40, choices=FACULTY_CHOICES)
 
 
 class ExamPaper(models.Model):
@@ -39,6 +47,7 @@ class ExamPaper(models.Model):
     # solutionTimeStamp =
     # reportTimeStamp =
     notes = models.CharField(max_length=100, default="")
+    course = models.ForeignKey(Course)
 
 
 class MembershipExamUser(models.Model):
