@@ -5,10 +5,9 @@ from .models import MembershipExamUser
 from django_tables2.utils import A
 
 class MembershipExamUserTable(tables.Table):
-
+    paper = tables.LinkColumn(viewname='allExamsFirstExaminerPaperDetail', args=[A('pk')], orderable=False, text='Open Details')
     class Meta:
         model = MembershipExamUser
-        paper = tables.LinkColumn('examPaperDetail', args=[A('pk')])
-        fields = ('examPaper.course.courseCode', 'examPaper.status', 'firstExaminer.phone', 'examPaper.course.faculty', 'paper')
-        attrs = {"class": "table-striped table-bordered"}
+        fields = ('examPaper.course.courseCode', 'examPaper.status', 'firstExaminer.phone', 'examPaper.course.faculty')
+        attrs = {"class": "table-striped table-bordered", "width":"200%"}
     empty_text = "There are no exam papers matching the criteria."

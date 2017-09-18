@@ -18,8 +18,9 @@ from .tables import MembershipExamUserTable
 
 # Create your views here.
 
-# def allExamsFirstExaminerView():
-
+def allExamsFirstExaminerPaperDetail(request, pk):
+    template_name = 'exam_paper/view_exam_paper_detail.html'
+    return render(request, template_name)
 
 # @login_required(login_url="login/")
 class allExamsFirstExaminerView(generic.ListView):
@@ -37,6 +38,3 @@ class allExamsFirstExaminerView(generic.ListView):
         RequestConfig(self.request, paginate={'per_page': 30}).configure(table)
         context['table'] = table
         return context
-
-    # def get_queryset(self):
-    #     return MembershipExamUser.objects.filter(firstExaminer__id=self.request.user.id)
