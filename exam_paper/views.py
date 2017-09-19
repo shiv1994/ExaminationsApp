@@ -5,8 +5,6 @@ from django.shortcuts import render
 
 from django.contrib.auth.decorators import login_required
 
-import django_tables2 as tables
-
 from django_tables2 import RequestConfig
 
 from django.views import generic
@@ -20,7 +18,8 @@ from .tables import MembershipExamUserTable
 
 def allExamsFirstExaminerPaperDetail(request, pk):
     template_name = 'exam_paper/view_exam_paper_detail.html'
-    return render(request, template_name)
+    paperObj = ExamPaper.objects.get(pk=pk)
+    return render(request, template_name, {"paperObj": paperObj})
 
 # @login_required(login_url="login/")
 class allExamsFirstExaminerView(generic.ListView):

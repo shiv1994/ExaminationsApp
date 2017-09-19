@@ -12,10 +12,9 @@
 
         <ul class="nav navbar-nav">
           <li> <a href="/#">Home</a> </li>
-          <li> <a href="#">First Examiner Exam Views</a> </li>
+          <li class="active"> <a href="#">First Examiner Exam Views</a> </li>
           <li> <a href="#">Second Examiner Exam Views</a> </li>
           <li> <a href="#">External Examiner Exam Views</a> </li>
-            <li class="active"> <a href="#"> Exam Paper Detail </a> </li>
         </ul>
 
     {% endblock %}
@@ -23,7 +22,40 @@
 
 	{% block content %}
 
+    <h1>Exam Details</h1>
 
+    <hr>
+
+    <fieldset>
+
+        <legend> {{paperObj.course.courseName}} </legend>
+
+        <dl class="dl-horizontal">
+
+            <dt>Course Code</dt>
+            <dd>{{paperObj.course.courseCode}}</dd>
+
+            <dt>Faculty</dt>
+            <dd>{{paperObj.course.faculty}}</dd>
+
+            <!--<dt>Question</dt>-->
+            <!--<dd>{{paperObj.examPaperQuestion}}</dd>-->
+
+            <dt>Year</dt>
+            <dd>{{paperObj.year}}</dd>
+
+            <dt>Semester</dt>
+            <dd>{{paperObj.semester}}</dd>
+
+            <dt>Status</dt>
+            <dd>{{paperObj.status}}</dd>
+
+            <dt>Notes</dt>
+            <dd>{{paperObj.notes}}</dd>
+
+        </dl>
+
+    </fieldset>
 
 	{% endblock %}
 
