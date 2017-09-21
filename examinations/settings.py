@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django_tables2',
     'bootstrap3',
     'accs',
-    'exam_paper'
+    'exam_paper',
+    # 'filer'
 ]
 
 MIDDLEWARE = [

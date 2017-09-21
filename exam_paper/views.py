@@ -3,8 +3,6 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from django.contrib.auth.decorators import login_required
-
 from django_tables2 import RequestConfig
 
 from django.views import generic
@@ -13,7 +11,6 @@ from .models import ExamPaper, MembershipExamUser
 
 from .tables import MembershipExamUserTable
 
-
 # Create your views here.
 
 def allExamsFirstExaminerPaperDetail(request, pk):
@@ -21,7 +18,7 @@ def allExamsFirstExaminerPaperDetail(request, pk):
     paperObj = ExamPaper.objects.get(pk=pk)
     return render(request, template_name, {"paperObj": paperObj})
 
-# @login_required(login_url="login/")
+
 class allExamsFirstExaminerView(generic.ListView):
     model = ExamPaper
 

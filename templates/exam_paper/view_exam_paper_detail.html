@@ -22,38 +22,53 @@
 
 	{% block content %}
 
-    <h1>Exam Details</h1>
-
-    <hr>
+   <div class="page-header">
+          <h1>Examination Details
+          <br>
+          <small>{{paperObj.course.courseName}} </small></h1>
+   </div>
 
     <fieldset>
 
-        <legend> {{paperObj.course.courseName}} </legend>
+        <form class="form-horizontal">
 
-        <dl class="dl-horizontal">
+            <dl class="dl-horizontal">
 
-            <dt>Course Code</dt>
-            <dd>{{paperObj.course.courseCode}}</dd>
+                <dt>Course Code</dt>
+                <dd>{{paperObj.course.courseCode}}</dd>
 
-            <dt>Faculty</dt>
-            <dd>{{paperObj.course.faculty}}</dd>
+                <dt>Faculty</dt>
+                <dd>{{paperObj.course.faculty}}</dd>
 
-            <!--<dt>Question</dt>-->
-            <!--<dd>{{paperObj.examPaperQuestion}}</dd>-->
+                <dt>Year</dt>
+                <dd>{{paperObj.year}}</dd>
 
-            <dt>Year</dt>
-            <dd>{{paperObj.year}}</dd>
+                <dt>Semester</dt>
+                <dd>{{paperObj.semester}}</dd>
 
-            <dt>Semester</dt>
-            <dd>{{paperObj.semester}}</dd>
+                <dt>Status</dt>
+                <dd>{{paperObj.status}}</dd>
 
-            <dt>Status</dt>
-            <dd>{{paperObj.status}}</dd>
+                <dt>Notes</dt>
+                <dd>{{paperObj.notes}}</dd>
 
-            <dt>Notes</dt>
-            <dd>{{paperObj.notes}}</dd>
+            </dl>
 
-        </dl>
+        </form>
+
+        <div class="container">
+              <hr>
+              <h4>Exam Paper</h4>
+                <a href="{{paperObj.examPaperQuestion.url}}" download>
+                  <button type="button" class="btn btn-default">Download Exam Paper</button>
+                </a>
+              <button type="button" class="btn btn-default">Upload Exam Paper</button>
+              <br>
+              <hr>
+              <h4>Exam Report</h4>
+              <button type="button" class="btn btn-primary">Download Exam Report</button>
+              <button type="button" class="btn btn-primary">Upload Exam Report</button>
+        </div>
 
     </fieldset>
 

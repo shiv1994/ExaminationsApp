@@ -6,7 +6,7 @@ from django.db import models
 from django.core.files.storage import FileSystemStorage
 
 
-fsq = FileSystemStorage(location='/media/')
+fsq = FileSystemStorage(location='media')
 fsa = FileSystemStorage(location='/media/')
 fsr = FileSystemStorage(location='/media/')
 
