@@ -23,3 +23,12 @@ class MembershipExamUserTableSecond(tables.Table):
         fields = ('examPaper.course.courseCode', 'examPaper.status', 'firstExaminer.phone', 'examPaper.course.faculty')
         attrs = {"class": "table-striped table-bordered", "width": "200%"}
         empty_text = "There are no exam papers matching the criteria."
+
+class MembershipExamUserTableExternal(tables.Table):
+    paper = tables.LinkColumn(viewname='allExamsExternalExaminerPaperDetail', args=[A('pk')], orderable=False, text='Open Details')
+
+    class Meta:
+        model = MembershipExamUser
+        fields = ('examPaper.course.courseCode', 'examPaper.status', 'firstExaminer.phone', 'examPaper.course.faculty')
+        attrs = {"class": "table-striped table-bordered", "width": "200%"}
+        empty_text = "There are no exam papers matching the criteria."
