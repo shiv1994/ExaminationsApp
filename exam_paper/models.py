@@ -5,10 +5,9 @@ from django.db import models
 
 from django.core.files.storage import FileSystemStorage
 
-
 fsq = FileSystemStorage(location='media')
-fsa = FileSystemStorage(location='/media/')
-fsr = FileSystemStorage(location='/media/')
+fsa = FileSystemStorage(location='media/')
+fsr = FileSystemStorage(location='media/')
 
 
 # Create your models here.
@@ -22,6 +21,9 @@ class Course(models.Model):
     courseCode = models.CharField(max_length=10, verbose_name='Course Code')
     courseName = models.CharField(max_length=30)
     faculty = models.CharField(max_length=40, choices=FACULTY_CHOICES)
+
+    def __str__(self):
+        return '%s' % self.courseCode
 
 
 class ExamPaper(models.Model):
@@ -43,11 +45,11 @@ class ExamPaper(models.Model):
     year = models.IntegerField()
     semester = models.CharField(max_length=5, choices=SEMESTER_CHOICES)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES)
-    # paperTimeStamp =
-    # solutionTimeStamp =
-    # reportTimeStamp =
     notes = models.CharField(max_length=100, default="")
     course = models.ForeignKey(Course)
+
+    def __str__(self):
+        return '%s' % self.course.courseCode
 
 
 class MembershipExamUser(models.Model):
@@ -57,5 +59,5 @@ class MembershipExamUser(models.Model):
     secondExaminer = models.ForeignKey('accs.UserProfile', related_name='secondary')
     externalExaminer = models.ForeignKey('accs.UserProfile', related_name='tertiary')
 
-    # def __str__(self):
-    #        	return '%s' % (self.firstExaminer.username)
+    def __str__(self):
+        return '%s' % self.examPaper.course.courseCode

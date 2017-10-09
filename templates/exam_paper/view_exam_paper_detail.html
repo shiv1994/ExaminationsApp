@@ -12,7 +12,7 @@
 
         <ul class="nav navbar-nav">
           <li> <a href="/#">Home</a> </li>
-          <li class="active"> <a href="#">First Examiner Exam Views</a> </li>
+          <li> <a href="#">First Examiner Exam Views</a> </li>
           <li> <a href="#">Second Examiner Exam Views</a> </li>
           <li> <a href="#">External Examiner Exam Views</a> </li>
         </ul>
@@ -62,12 +62,27 @@
                 <a href="{{paperObj.examPaperQuestion.url}}" download>
                   <button type="button" class="btn btn-default">Download Exam Paper</button>
                 </a>
-              <button type="button" class="btn btn-default">Upload Exam Paper</button>
+                {% if canUploadExam %}
+                    <button type="button" class="btn btn-default">Upload Exam Paper</button>
+                {% endif %}
               <br>
               <hr>
               <h4>Exam Report</h4>
-              <button type="button" class="btn btn-primary">Download Exam Report</button>
-              <button type="button" class="btn btn-primary">Upload Exam Report</button>
+                <a href="{{paperObj.examPaperReport.url}}" download>
+                    <button type="button" class="btn btn-primary">Download Exam Report</button>
+                </a>
+                {% if canUploadReport %}
+                    <button type="button" class="btn btn-primary">Upload Exam Report</button>
+                {% endif %}
+               <br>
+              <hr>
+              <h4>Exam Solutions</h4>
+                <a href="{{paperObj.examPaperSolutions.url}}" download>
+                    <button type="button" class="btn btn-primary">Download Exam Solutions</button>
+                </a>
+                {% if canUploadSolution %}
+                    <button type="button" class="btn btn-primary">Upload Exam Solutions</button>
+                {% endif %}
         </div>
 
     </fieldset>
